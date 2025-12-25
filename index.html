@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merry Christmas Eve ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background">
+    <h1 class="title">Merry Christmas✨</h1>
+    <div class="sky"></div>
+    <div class="stars stars-1"></div>
+    <div class="stars stars-2"></div>
+    <div class="stars stars-3"></div>
+
+    <canvas id="snow"></canvas>
+  </div>
+
+  <img src="assets/santajii.png" alt="Santa on sleigh" class="santa" />
+
+  <div class="scene">
+    <div class="trees trees-bg">
+      <img src="assets/tree.png" class="tree t-left" alt="Tree" />
+      <img src="assets/tree.png" class="tree t-right" alt="Tree" />
+      
+    </div>
+
+  </div>
+
+  <main>
+    <section class="hero reveal">
+      <div class="title-sparkles" aria-hidden="true">
+        <span class="sparkle s1"></span>
+        <span class="sparkle s2"></span>
+        <span class="sparkle s3"></span>
+        <span class="sparkle s4"></span>
+        <span class="sparkle s5"></span>
+      </div>
+      <p class="subtitle">Wishing you a magical night filled with wonder, warmth, and joy.</p>
+      <button id="audioToggle" class="audio-btn" aria-label="Toggle music">♪ Music</button>
+      <audio id="bgAudio" src="assets/jingle-bells.mp3" loop preload="none"></audio>
+    </section>
+
+    <section class="gifts reveal">
+      <h2 class="section-title">Open Your Christmas Wishes</h2>
+      <div class="cards">
+        <div class="card" data-message="May your heart glow brighter than the Christmas lights.">
+          <div class="card-inner">
+            <div class="card-front">🎁</div>
+            <div class="card-back"></div>
+          </div>
+        </div>
+        <div class="card" data-message="Warm hugs, cozy nights, and gentle snow—Merry Christmas!">
+          <div class="card-inner">
+            <div class="card-front">🎄</div>
+            <div class="card-back"></div>
+          </div>
+        </div>
+        <div class="card" data-message="Magic is real tonight—wishing you starlit dreams.">
+          <div class="card-inner">
+            <div class="card-front">⭐</div>
+            <div class="card-back"></div>
+          </div>
+        </div>
+        <div class="card" data-message="Peace, love, and a little sparkle for your soul.">
+          <div class="card-inner">
+            <div class="card-front">✨</div>
+            <div class="card-back"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalMessage">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">×</button>
+      <div id="modalMessage" class="modal-message"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
