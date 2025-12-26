@@ -1,4 +1,8 @@
-/* Cinematic Christmas Eve Styles */
+* {
+  box-sizing: border-box;
+}
+
+
 :root {
   --sky-top: #0b1026;
   --sky-bottom: #02030a;
@@ -9,9 +13,7 @@
   --green: #0db67b;
 }
 
-* {
-  box-sizing: border-box;
-}
+
 
 html,
 body {
@@ -26,7 +28,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Background layers */
+
 .background {
   position: fixed;
   inset: 0;
@@ -70,27 +72,15 @@ body {
   }
 }
 
-/* Moon */
-.moon {
-  position: absolute;
-  top: 6vh;
-  right: 10vw;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, #dfe9ff 40%, rgba(255, 255, 255, 0.05) 60%);
-  box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.08);
-  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
-  opacity: 0.9;
-}
 
-/* Snow canvas */
+
+
 #snow {
   position: absolute;
   inset: 0;
 }
 
-/* Santa sleigh */
+
 .santa {
   position: fixed;
   top: 20vh;
@@ -122,7 +112,7 @@ body {
   }
 }
 
-/* Scene trees */
+
 .scene {
   position: relative;
   z-index: 1;
@@ -144,9 +134,6 @@ body {
   transform: translateZ(0);
 }
 
-.trees-fg {
-  opacity: 0.9;
-}
 
 .tree {
   width: 15vw;
@@ -154,15 +141,7 @@ body {
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.55));
 }
 
-.tree.small {
-  width: 14vw;
-  opacity: 0.6;
-}
 
-.tree.big {
-  width: 10vw;
-   opacity: 0.6;
-}
 
 .t-left {
   margin-left: 2vw;
@@ -200,7 +179,7 @@ section {
   padding: 8vh 5vw;
 }
 
-/* Hero title */
+
 .title {
   font-family: 'Cinzel', serif;
   font-size: clamp(2.8rem, 6vw, 6rem);
@@ -285,7 +264,7 @@ section {
   }
 }
 
-/* Audio button */
+
 .audio-btn {
   margin-top: 24px;
   padding: 10px 16px;
@@ -303,7 +282,7 @@ section {
   box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2);
 }
 
-/* Gifts section */
+
 .gifts .section-title {
   font-family: 'Cinzel', serif;
   font-size: clamp(1.8rem, 4vw, 3rem);
@@ -311,101 +290,93 @@ section {
   margin-bottom: 32px;
 }
 
+
+
 .cards {
   display: grid;
-  grid-template-columns: repeat(4, minmax(160px, 1fr));
-  gap: clamp(16px, 2vw, 28px);
-  width: min(1200px, 90vw);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 28px;
+  width: min(1100px, 92vw);
+  margin: 0 auto;
 }
 
+
 .card {
-  perspective: 800px;
+  perspective: 1000px;
+  cursor: pointer;
 }
+
 
 .card-inner {
   position: relative;
-  transform-style: preserve-3d;
   width: 100%;
   padding-top: 130%;
-  transition: transform 0.5s ease, filter 0.4s ease;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(.4,.2,.2,1);
 }
+
 
 .card-front,
-.card-back {
+.card-back,
+.card-message {
   position: absolute;
   inset: 0;
-  border-radius: 20px;
-  display: grid;
-  place-items: center;
-  font-size: 2.4rem;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   backface-visibility: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.15);
 }
+
 
 .card-front {
-  background: linear-gradient(135deg, #a60012, var(--accent));
+  background: linear-gradient(145deg, #a60012, #e50914);
   color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  font-size: 2.8rem;
+  border: 2px solid rgba(255, 255, 255, 0.35);
 }
 
+
 .card-back {
-  background: linear-gradient(135deg, var(--gold), #d1a84f);
-  color: #1a1200;
+  background: linear-gradient(145deg, #f7d774, #d1a84f);
   transform: rotateY(180deg);
 }
 
+
+.card-message {
+  padding: 18px;
+  background: linear-gradient(145deg, #f7d774, #d1a84f);
+  transform: rotateY(180deg);
+  color: #2b1a00;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.3s;
+}
+
+
 .card:hover .card-inner {
-  transform: translateY(-6px) rotateY(5deg);
-  filter: drop-shadow(0 12px 26px rgba(255, 255, 255, 0.15));
+  transform: translateY(-8px) rotateX(6deg);
 }
 
 .card.open .card-inner {
   transform: rotateY(180deg);
 }
 
-/* Modal */
-.modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(2px);
-  z-index: 5;
+.card.open .card-message {
+  opacity: 1;
 }
 
-.modal.show {
-  display: flex;
+
+.card.open {
+  filter: drop-shadow(0 0 18px rgba(247, 215, 116, 0.6));
 }
 
-.modal-content {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border-radius: 16px;
-  padding: 24px;
-  width: min(520px, 90vw);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  position: relative;
-}
 
-.modal-message {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.modal-close {
-  position: absolute;
-  right: 12px;
-  top: 10px;
-  border: none;
-  background: transparent;
-  color: #fff;
-  font-size: 1.6rem;
-  cursor: pointer;
-}
 
 
 .reveal {
@@ -424,7 +395,7 @@ section {
   /* margin-bottom: 100px; */
 }
 
-/* Responsive */
+
 @media (max-width: 900px) {
   .santa {
     width: 44vw;
@@ -439,12 +410,13 @@ section {
   }
 }
 
+/* cards ke liye in mobile */
 @media (max-width: 600px) {
-  .cards {
-    grid-template-columns: 1fr;
+  .card-front {
+    font-size: 2.2rem;
   }
 
-  .title {
-    font-size: clamp(2.2rem, 8vw, 4rem);
+  .card-message {
+    font-size: 0.9rem;
   }
 }

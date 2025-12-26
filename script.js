@@ -58,17 +58,22 @@ const modal = document.getElementById("modal");
 const modalMessage = document.getElementById("modalMessage");
 const closeBtn = document.querySelector(".modal-close");
 
-cards.forEach(card => {
-  card.addEventListener("click", () => {
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
 
-    if (card.classList.contains("open")) return;
+    if (card.classList.contains('open')) return;
 
-    card.classList.add("open");
+    card.classList.add('open');
 
-    modalMessage.textContent = card.dataset.message;
-    modal.classList.add("show");
+    const message = card.dataset.message || 'Merry Christmas!';
+    const msgBox = card.querySelector('.card-message');
+
+    if (msgBox) {
+      msgBox.textContent = message;
+    }
   });
 });
+
 
 closeBtn.addEventListener("click", () => {
   modal.classList.remove("show");
