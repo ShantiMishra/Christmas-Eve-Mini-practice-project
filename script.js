@@ -75,30 +75,28 @@ document.querySelectorAll('.card').forEach(card => {
 });
 
 
-closeBtn.addEventListener("click", () => {
-  modal.classList.remove("show");
-});
-
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("show");
-  }
-});
-
 
 const audio = document.getElementById("bgAudio");
-const musicBtn = document.getElementById("audioToggle");
+const btn = document.getElementById("audioToggle");
 
-let isPlaying = false;
+if (audio && btn) {
+  let isPlaying = false;
 
-musicBtn.addEventListener("click", () => {
-  if (!isPlaying) {
-    audio.play();
-    musicBtn.textContent = "⏸ Music";
-  } else {
-    audio.pause();
-    musicBtn.textContent = "♪ Music";
-  }
-  isPlaying = !isPlaying;
-});
+  btn.addEventListener("click", async () => {
+    try {
+      if (!isPlaying) {
+        await audio.play();   
+        isPlaying = true;
+        btn.textContent = "⏸ Music";
+      } else {
+        audio.pause();
+        isPlaying = false;
+        btn.textContent = "♪ Music";
+      }
+    } catch (err) {
+      console.log("Audio play blocked by browser");
+    }
+  });
+}
+
 
